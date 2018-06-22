@@ -1,7 +1,7 @@
 package entity
 
 import (
-	"github.com/moandy/canyonsysu/loghelper"
+	"canyonsysu/loghelper"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql" // for init

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/moandy/canyonsysu/server"
+	"canyonsysu/server"
 	"os"
 
 	flag "github.com/spf13/pflag"

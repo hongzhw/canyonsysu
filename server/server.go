@@ -3,8 +3,8 @@ package server
 import (
 	//"go-agenda-service/service/entity"
 	//"go-agenda-service/service/service"
-	"github.com/moandy/canyonsysu/loghelper"
-	"github.com/moandy/canyonsysu/service"
+	"canyonsysu/loghelper"
+	"canyonsysu/service"
 	"fmt"
 	"net/http"
 	"path/filepath"
@@ -58,7 +58,7 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 
 func GetCommentByCountHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		req.ParseForm()
 		begin, _ := strconv.Atoi(req.Form["begin"][0])
@@ -70,7 +70,7 @@ func GetCommentByCountHandler(formatter *render.Render) http.HandlerFunc {
 
 func ListAllMenufoodThroughTagHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		res := service.ListAllMenufoodsThroughTags()
 		formatter.JSON(w, 200, res)
@@ -155,7 +155,7 @@ func RestaurantRegisterHandler(formatter *render.Render) http.HandlerFunc {
 
 func ListAllRestaurantHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		req.ParseForm()
 		if len(req.Form["name"][0]) != 0 {
@@ -227,7 +227,7 @@ func RestaurantUpdateHandler(formatter *render.Render) http.HandlerFunc {
 
 func MenufoodRegisterHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		defer req.Body.Close()
 		js, _ := simplejson.NewFromReader(req.Body)
@@ -255,7 +255,7 @@ func MenufoodRegisterHandler(formatter *render.Render) http.HandlerFunc {
 
 func ListAllMenufoodHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		req.ParseForm()
 		if len(req.Form["name"][0]) != 0 {
@@ -284,7 +284,7 @@ func ListAllMenufoodHandler(formatter *render.Render) http.HandlerFunc {
 
 func GetMenufoodByNameHandler(r *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		req.ParseForm()
 		path := filepath.FromSlash(req.RequestURI)
@@ -334,7 +334,7 @@ func MenufoodUpdateHandler(formatter *render.Render) http.HandlerFunc {
 
 func MenufoodDeleteHandlerByID(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		fmt.Println("delete menufood!")
 		// req.ParseForm()
@@ -383,7 +383,7 @@ func OrderRegisterHandler(formatter *render.Render) http.HandlerFunc {
 
 func ListAllOrderHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin","*")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
 		req.ParseForm()
 		res := service.ListAllOrders()
@@ -523,10 +523,10 @@ func GetCommentCountsByTagHandler(r *render.Render) http.HandlerFunc {
 			fmt.Println(tag)
 			nums := service.GetCommentCountByTag(tag)
 			if nums != 0 {
-				r.JSON(w, 200, struct{
-					Tag string `json:"tag"`
-					Count int `json:"count"`
-				}{Tag: tag, Count:nums})
+				r.JSON(w, 200, struct {
+					Tag   string `json:"tag"`
+					Count int    `json:"count"`
+				}{Tag: tag, Count: nums})
 				loghelper.Info.Println("Get CommentCounts by Tag!")
 			} else {
 				r.JSON(w, 404, nil)
@@ -538,7 +538,7 @@ func GetCommentCountsByTagHandler(r *render.Render) http.HandlerFunc {
 		res := service.ListAllTags()
 		if len(res) == 0 {
 			r.JSON(w, 404, nil)
-		 	loghelper.Info.Println("No Tags Now!")
+			loghelper.Info.Println("No Tags Now!")
 		} else {
 			r.JSON(w, 200, res)
 			loghelper.Info.Println("List All Tags!")
@@ -549,10 +549,10 @@ func GetCommentCountsByTagHandler(r *render.Render) http.HandlerFunc {
 func ListServiceHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, 200, struct {
-			Taste_score float32 `json:"taste_score"`
-			Sight_score float32 `json:"sight_score"`
+			Taste_score   float32 `json:"taste_score"`
+			Sight_score   float32 `json:"sight_score"`
 			Overall_score float32 `json:"overall_score"`
 			Service_score float32 `json:"service_score"`
-		} {Taste_score: 4.7, Sight_score: 4.7, Overall_score: 4.9, Service_score: 4.9})
+		}{Taste_score: 4.7, Sight_score: 4.7, Overall_score: 4.9, Service_score: 4.9})
 	}
 }
