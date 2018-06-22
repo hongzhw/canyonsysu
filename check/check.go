@@ -25,8 +25,8 @@ func CheckPhone(phone string) (bool, error) {
  @餐馆名正确格式为：汉字、英文字母、数字组成，不允许特殊字符
 */
 func CheckName(name string) (bool, error) {
-	r, _ := regexp.Compile("[\u4e00-\u9fa5a-zA-Z0-9]+")
-	if !r.MatchString(name) {
+	r, _ := regexp.Compile("[^\u4e00-\u9fa5a-zA-Z0-9]+")
+	if r.MatchString(name) {
 		return false, nil
 	}
 	return true, nil

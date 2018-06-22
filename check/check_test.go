@@ -1,8 +1,6 @@
 package check
 
 import (
-	"fmt"
-	"regexp"
 	"strconv"
 	"testing"
 )
@@ -38,8 +36,6 @@ func Test_Check_Phone(t *testing.T) {
 }
 
 func Test_Check_Name(t *testing.T) {
-	r, _ := regexp.Compile("[\u4e00-\u9fa5a-zA-Z0-9]+")
-	fmt.Println(r.MatchString("_@fad"))
 	shouldSuccess := []inputAndExpected{
 		{"123", true},
 		{"_@fad", false},
