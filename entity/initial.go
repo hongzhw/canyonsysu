@@ -17,10 +17,10 @@ func checkErr(err error) {
 }
 
 func init() {
-	db, err := xorm.NewEngine("mysql", "root:wsm971058171@tcp(127.0.0.1:3306)/canyonsysu?charset=utf8&parseTime=true")
+	db, err := xorm.NewEngine("mysql", "root:wsm971058171@tcp(119.23.243.149:3306)/canyonsysu?charset=utf8&parseTime=true")
 	checkErr(err)
 	engine = db
-	db.Sync2(new(Restaurant), new(Menufood), new(Orders), new(Orderfood), new(Comment))
+	db.Sync2(new(Restaurant), new(Menufood), new(Orders), new(Orderfood), new(Comment), new(Customer))
 }
 
 func insertCustomer(v *Customer) error {

@@ -33,3 +33,24 @@ ERROR: 2018/06/19 11:44:52 log.go:47: Start up Error log
 ERROR: 2018/06/20 13:53:38 log.go:47: Start up Error log
 ERROR: 2018/06/20 13:58:47 log.go:47: Start up Error log
 ERROR: 2018/06/20 13:59:25 log.go:47: Start up Error log
+ERROR: 2018/06/23 17:21:03 log.go:48: Start up Error log
+ERROR: 2018/06/23 17:21:05 service.go:21: User Register: Already exist username
+ERROR: 2018/06/23 19:00:38 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:00:40 service.go:21: User Register: Already exist username
+ERROR: 2018/06/23 19:05:50 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:06:41 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:25:41 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:36:24 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:38:54 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:39:22 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:41:41 log.go:48: Start up Error log
+ERROR: 2018/06/23 19:55:03 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:08:40 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:10:45 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:11:25 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:16:56 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:16:57 service.go:21: User Register: Already exist username
+ERROR: 2018/06/23 20:17:28 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:17:29 service.go:21: User Register: Already exist username
+ERROR: 2018/06/23 20:18:29 log.go:48: Start up Error log
+ERROR: 2018/06/23 20:18:30 service.go:21: User Register: Already exist username
